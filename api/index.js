@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+dotenv.config({path: '../.env'});
 const cors = require("cors")
 const mongoose = require("mongoose");
 
@@ -22,6 +23,7 @@ app.use(cors());
 //by this we can send any .json file 
 
 const uri = process.env.MONGO_URL;
+
 mongoose.connect(uri, { useNewUrlParser: true })
 .then(console.log("Connected to MongoDB"))
 .catch((err) => {
