@@ -2,7 +2,7 @@
     height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;     
-    background-color: rgb(108, 171, 223);
+    background-color: rgb(145, 181, 210);
     align-items: center;
 }
 

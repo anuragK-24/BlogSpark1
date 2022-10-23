@@ -43,11 +43,12 @@
     margin-bottom: 30px;
 }
 
-.sidebarListItem{
+.sidebarListItem {
     display: inline-block;
-    margin-top: 10%;
     width: 50%;
+    margin-top: 15px;
     cursor: pointer;
+    padding: 2px;
 }
 
 .sidebarSocial{
