@@ -15,7 +15,7 @@ router.post("/",async(req,res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-})
+});
 // here status 500 means that something is wrong with the mongoDB
 
 //req is what we are sending to the server, and res what we are getting from the server 
@@ -68,9 +68,10 @@ router.delete("/:id",async(req,res) => {
 });
 
 
-//get post 
+//get post by id
 
 router.get("/:id",async(req,res) => {
+    console.log(req.params.id);
     try {
         const post = await Post.findById(req.params.id);
 
@@ -106,6 +107,7 @@ router.get("/",async(req,res) => {    //in the website after '?' whatever will b
     }
 })
 
+module.exports = router;
 
 
 

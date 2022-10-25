@@ -22,7 +22,7 @@ router.post("/register",async(req,res) => {
         console.log('TRY RAn')
          // await is asynch operation 
         res.status(200).json(newUser);
-        //200 status meaning the user has been created 
+        //200 status meaning the user has been created = success
     } catch (err) {
         console.log('catch RAn')
         console.log(err)

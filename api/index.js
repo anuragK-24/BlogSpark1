@@ -17,10 +17,14 @@ const categoryRoute = require("./routes/categories");
 
 const multer = require("multer");
 
+const path = require("path");
+
 dotenv.config();
 app.use(express.json()); 
 app.use(cors());
 //by this we can send any .json file 
+
+app.use("/images", express.static(path.join(__dirname,"/images")))
 
 const uri = process.env.MONGO_URL;
 
@@ -31,16 +35,16 @@ mongoose.connect(uri, { useNewUrlParser: true })
 });
 
 const storage =  multer.diskStorage({
-    destination:(req,file,cb) => {
+    destination:(req, file,cb) => {
         cb(null, "images")
     },filename:(req, file, cb)=>{
-        cb(null,req.body.name)
+        cb(null, req.body.name)
     }
 })
 
 const upload = multer({storage:storage});    
 app.post("/api/upload",upload.single("file"),(req,res) => {
-    res.send(200).json("File has been uploaded")
+    res.status(200).json("File has been uploaded")
 })
 
 app.use("/api/auth", authRoute);
