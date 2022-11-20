@@ -2,6 +2,7 @@ import { useContext ,useState  } from "react"
 import "./write.css"
 import axios from "axios";
 import { Context } from "../../context/Context";
+import { redirect } from "react-router-dom";
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -29,6 +30,7 @@ export default function Write() {
     try {
       const res = await axios.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id);
+      // above line is used to redirect the URL
     } catch (err) {}
   };
 

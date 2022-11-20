@@ -22,7 +22,7 @@ export default function Post({post}) {
             <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
                         {/* this line is used to display date in proper format  */}
         </div>
-        <p className="postDesc">{post.desc}</p>
+        <p className="postDesc" >{post.desc}</p>
       </div>
     </>
   )

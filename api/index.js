@@ -28,7 +28,9 @@ app.use("/images", express.static(path.join(__dirname,"/images")))
 
 const uri = process.env.MONGO_URL;
 
-mongoose.connect(uri, { useNewUrlParser: true })
+mongoose.connect(uri, { 
+    useNewUrlParser: true 
+})
 .then(console.log("Connected to MongoDB"))
 .catch((err) => {
     console.log(err);

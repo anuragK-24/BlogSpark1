@@ -90,11 +90,14 @@ export default function SinglePost() {
         {updateMode ? (
           <textarea
             className="singlePostDescInput"
+            rows="40" 
+            cols="50"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
+            readOnly
           />
         ) : (
-          <p className="singlePostDesc">{desc}</p>
+          <pre className="singlePostDesc">{desc}</pre>
         )}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>
