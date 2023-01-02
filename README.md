@@ -1,2 +1,2 @@
-## React Blog application 
+## React 
 
