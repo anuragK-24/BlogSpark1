@@ -29,11 +29,11 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post("https://blogapi-gpp7.onrender.com/api/auth/login/upload", data);
       } catch (err) {}
     }
     try {
-      await axios.put("/users/"+ user._id, updatedUser);
+      await axios.put("https://blogapi-gpp7.onrender.com/api/auth/login/users/"+ user._id, updatedUser);
     } catch (err) {}
   };
 

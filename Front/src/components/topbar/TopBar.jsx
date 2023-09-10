@@ -11,11 +11,11 @@ export default function TopBar() {
     }
 
   return (
-    <div class="top">
+    <div className="top">
         <div className="topLeft">
-            <i className="topIcon fa-brands fa-facebook"></i>
+            <a href=''><i className="topIcon fa-brands fa-facebook"></i></a>
             <i className="topIcon fa-brands fa-instagram"></i>
-            <i className="topIcon fa-brands fa-twitter"></i>
+            <a href='https://twitter.com/AnuragS41695054'><i className="topIcon fa-brands fa-twitter"></i></a>
             <i className="topIcon fa-brands fa-pinterest"></i>
         </div>
         <div className="topCentre">

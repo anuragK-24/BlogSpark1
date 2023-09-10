@@ -8,7 +8,7 @@ export default function Sidebar() {
   // ([])  represents that the initial state is null 
   useEffect(()=>{
   const getCats = async ()=> {
-    const res = await axios.get("/categories")
+    const res = await axios.get("https://blogapi-gpp7.onrender.com/api/categories")
     setCats(res.data)
   }
   getCats()

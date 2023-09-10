@@ -7,7 +7,7 @@ import { redirect } from "react-router-dom";
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [file, setFile] = useState(null) ;   
+  const [photo, setPhoto] = useState("") ;   
   const {user} = useContext(Context);
 
   const handleSubmit = async (e) => {
@@ -16,19 +16,10 @@ export default function Write() {
       username: user.username,
       title,
       desc,
+      photo,
     };
-    if (file) {
-      const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append("name", filename);
-      data.append("file", file);
-      newPost.photo = filename;
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {}
-    }
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axios.post("https://blogapi-gpp7.onrender.com/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
       // above line is used to redirect the URL
     } catch (err) {}
@@ -36,22 +27,20 @@ export default function Write() {
 
   return (
     <div className="write">
-      { file && (
+      { photo && photo.length===0 && (
       <img  className="writeImg"
-         src={URL.createObjectURL(file)} alt="" />
+         src={photo} alt="" />
       )}
-      <form className="writeForm" onSubmit={handleSubmit}>
-        <div className="writeFormGroup">
-          <label htmlFor="fileInput">
-            {/* to add the more than one class name we can do it by placing both into one " "  */}
-            <i className="writeIcon fas fa-plus"></i>  
-          </label>
+      <form action="POST" className="writeForm"  onSubmit={handleSubmit}>
+        <div className="writeFormGroup">          
           <input 
-            type="file"
-            id="fileInput" 
-            style={{ display: "none" }} 
-            onChange={(e) => setFile(e.target.files[0])}
+            type="text"
+            placeholder="Image URL" 
+            className="writeInput Url" 
+            onChange={(e) => setPhoto(e.target.value)}
           />
+          </div>          
+          <div className="writeFormGroup">
           <input 
             type="text" 
             placeholder="Title" 

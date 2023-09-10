@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(()=>{
     const fetchPosts = async () =>{
-      const res = await axios.get("/posts" + search);
+      const res = await axios.get("https://blogapi-gpp7.onrender.com/api/posts" + search);
       setPosts(res.data);
     }
     fetchPosts() 
@@ -24,7 +24,6 @@ export default function Home() {
     <Header/>
     <div className="home">
       <Posts posts={posts}/>
-      <Sidebar/>
     </div>
   </>
     

@@ -14,7 +14,7 @@ export default function Login() {
     dispatch({type:"LOGIN_START"});       
     
     try {
-      const res = await axios.post("/auth/login",{
+      const res = await axios.post("https://blogapi-gpp7.onrender.com/api/auth/login",{
         username : userRef.current.value,
         password : passwordRef.current.value,
       })
@@ -33,14 +33,14 @@ export default function Login() {
         <input 
           type="text"
           className="loginInput " 
-          placeholder="Naam bata ..." 
+          placeholder="Enter your name ..." 
           ref={userRef}
         />
         <label>Password</label>
         <input 
           type="password" 
           className="loginInput " 
-          placeholder="password bata..."
+          placeholder="Enter your password ..."
           ref = {passwordRef}
         />
         <button className="loginButton" type="submit" disabled={isFetching}>Login</button>
